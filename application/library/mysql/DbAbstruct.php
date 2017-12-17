@@ -1,8 +1,8 @@
 <?php
 
-declare(strict_type=1);
+declare(strict_types=1);
 
-namespace dolpon/library/mysql
+namespace dolpon\library\mysql
 
 class DbAbstruct
 {

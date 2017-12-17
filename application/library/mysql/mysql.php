@@ -1,15 +1,15 @@
 <?php
 
-declare(strict_type=1);
+declare(strict_types=1);
 
-namespance dolpon/library/mysql
+namespace mysql;
 
-use dolpon/library/mysql/DbAbstruct;
+use mysql\DbAbstruct;
 
 class mysql
 {
 
-    public static $db;
+    public $db;
   
     protected $host;
 
@@ -46,7 +46,7 @@ class mysql
 	if($this->db != null) {
 	    return $this->db;
 	}
-        $this->db = new PDO($dsn, $user, $password);
+        $this->db = new \PDO($dsn, $this->user, $this->password);
         return $this->db;
         		
     }	
