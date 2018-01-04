@@ -43,9 +43,10 @@ class mysql
     public function conn()
     { 
         $dsn = 'mysql:host='.$this->host.';dbname='.$this->dbname;
-	if($this->db != null) {
-	    return $this->db;
-	}
+        if($this->db != null) {
+            return $this->db;
+        }
+
         $this->db = new \PDO($dsn, $this->user, $this->password);
         return $this->db;
         		
