@@ -16,10 +16,15 @@ class BaseController extends Yaf_Controller_Abstract
     public function init()
     {
 
-        $mysqlConfig = Yaf_Application::app()->getConfig();
+        $mysqlConfig    = Yaf_Application::app()->getConfig();
+        $localhost      = $mysqlConfig->get('mysql')->get('localhost');
+        $port           = $mysqlConfig->get('mysql')->get('port');
+        $dbName         = $mysqlConfig->get('mysql')->get('dbname');
+        $user           = $mysqlConfig->get('mysql')->get('user');
+        $password       = $mysqlConfig->get('mysql')->get('password');
+        $driver         = $mysqlConfig->get('mysql')->get('driver');
 
-
-        $this->db = new db('127.0.0.1', '3306', 'szifree', 'jun', '123456', 'PDO');
+        $this->db = new db($localhost, $port, $dbName, $user, $password, $driver);
 
     }
 
