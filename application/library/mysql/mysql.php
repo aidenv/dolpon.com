@@ -27,7 +27,7 @@ class mysql
     {
        	$this->host 	= $host;
         $this->prot 	= $prot;
-	$this->dbname   = $dbname;
+	    $this->dbname   = $dbname;
         $this->user 	= $user;
         $this->password = $password;
         $this->driver 	= $driver;
@@ -56,6 +56,11 @@ class mysql
     {
         return $this->db->exec($sql);
 
+    }
+
+    public function select($sql)
+    {
+        return $this->db->query();
     }
 
     public function find($sql)

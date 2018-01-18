@@ -13,6 +13,9 @@ class IndexController extends BaseController {
 
     public function indexAction()
     {
+        $categoryModel = new CategoryModel();
+        $menuList = $categoryModel->getMenuList();
+
 
 	    $this->getView()->assign("content", "hello world");
     } 
