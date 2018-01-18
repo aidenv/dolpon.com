@@ -14,7 +14,7 @@ class CategoryModel
      */
     public function getMenuList()
     {
-        
+
         return [];
     }
 
