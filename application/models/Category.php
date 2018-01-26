@@ -2,9 +2,15 @@
 
 class CategoryModel extends BaseModel
 {
+
+    protected static $mysql;
+
     public function __construct()
     {
+
         parent::__construct();
+
+        static::$mysql = parent::$mysql;
     }
 
     /**
@@ -14,8 +20,15 @@ class CategoryModel extends BaseModel
      */
     public function getMenuList()
     {
+        $sql = 'SELECT c.parent_id , v.* FROM `ifr1_catalog_category_entity` AS c LEFT JOIN `ifr1_catalog_category_entity_varchar` AS v'.
+ 'ON c.entity_id=v.entity_id  WHERE c.parent_id<>0 and c.value<>""'.
+ 'ORDER BY c.parent_id ASC , v.value_id ASC';
 
-        return [];
+        $categoryList = static::$mysql->query($sql);
+
+        
+
+
     }
 
 

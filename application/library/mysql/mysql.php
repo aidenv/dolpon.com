@@ -73,5 +73,21 @@ class mysql
 
     }
 
+    /**
+     * query 方法
+     * @param string $sql
+     * @return array|bool
+     */
+    public function query($sql='')
+    {
+        if($sql === '') return false;
+
+        $result = [];
+        foreach ($this->db->query($sql) as $k=>$row) {
+            $result[$k] = $row;
+        }
+        return $result;
+    }
+
 
 }
