@@ -83,7 +83,7 @@ class mysql
         if($sql === '') return false;
 
         $result = [];
-        foreach ($this->db->query($sql) as $k=>$row) {
+        foreach (@$this->db->query($sql) as $k=>$row) {
             $result[$k] = $row;
         }
         return $result;

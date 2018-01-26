@@ -17,6 +17,6 @@ class IndexController extends BaseController {
         $menuList = $categoryModel->getMenuList();
 
 
-	    $this->getView()->assign("content", "hello world");
+	    $this->getView()->assign("menuList", $menuList);
     } 
 }
