@@ -20,16 +20,38 @@ class CategoryModel extends BaseModel
      */
     public function getMenuList()
     {
-        $sql = 'SELECT c.parent_id , v.* FROM `ifr1_catalog_category_entity` AS c LEFT JOIN `ifr1_catalog_category_entity_varchar` AS v '.
- 'ON c.entity_id=v.entity_id  WHERE c.parent_id<>0 AND v.value IS NOT NULL '.
- 'ORDER BY c.parent_id ASC , v.value_id ASC';
+        $sql = 'SELECT c.*, v.value FROM `ifr1_catalog_category_entity`  AS c LEFT JOIN `ifr1_catalog_category_entity_varchar` AS v '.
+            'ON c.entity_id=v.entity_id GROUP BY v.entity_id ASC';
 
 
         $categoryList = static::$mysql->query($sql);
 
-        return $categoryList;
+        if(empty($categoryList)) return  [];
+
+        $list = $this->getLevelCategory($categoryList);
+
+        return $list;
 
 
+    }
+
+    /**
+     * 分类树 递归
+     * @param array $catogories
+     * @param int $pid
+     * @return array
+     */
+    private function getLevelCategory($catogories=[], $pid=0)
+    {
+        $list = [];
+        foreach($catogories as $k=>$v) {
+            if ($v['parent_id'] == $pid) {
+                $v['item'] = $this->getLevelCategory($catogories, $v['entity_id']);
+
+                $list[] = $v;
+            }
+        }
+        return $list;
     }
 
 
