@@ -43,7 +43,6 @@
 			
 	<!-- PAGE WRAPPER -->
 <div id="page-wrapper">
-    <? php   ?>
 	<!-- SITE HEADER -->
 	<header id="site-header" role="banner">
 		<!-- HEADER TOP -->
@@ -171,142 +170,57 @@
 					<!-- // SITE LOGO -->
 					<!-- SITE NAVIGATION MENU -->
 					<nav id="site-menu" role="navigation">
-						<ul class="main-menu hidden-sm hidden-xs">
-							<li class="active">
-								<a href="index.html">Home</a>
-							</li>
-							<li>
-								<a href="products.html">Women</a>
-							</li>
-							<li>
-								<a href="products.html">Men</a>
-								
-								<!-- MEGA MENU -->
-								<div class="mega-menu" data-col-lg="9" data-col-md="12">
-									<div class="row">
-									
-										<div class="col-md-3">
-											<h4 class="menu-title">Clothing</h4>
-											<ul class="mega-sub">
-												<li><a href="products.html">Casual Wear</a></li>
-												<li><a href="products.html">Evening Wear</a></li>
-												<li><a href="products.html">Formal Attire</a></li>
-												<li><a href="products.html">Womens Jeans</a></li>
-												<li><a href="products.html">Mens Jeans</a></li>
-												<li><a href="products.html">Fall Styles</a></li>
-											</ul>
-										</div>
-										
-										<div class="col-md-3">
-											<h4 class="menu-title">Accessories</h4>
-											<ul class="mega-sub">
-												<li><a href="products.html">Casual Wear</a></li>
-												<li><a href="products.html">Evening Wear</a></li>
-												<li><a href="products.html">Formal Attire</a></li>
-												<li><a href="products.html">Womens Jeans</a></li>
-												<li><a href="products.html">Mens Jeans</a></li>
-												<li><a href="products.html">Fall Styles</a></li>
-											</ul>
-										</div>
-										
-										<div class="col-md-3">
-											<h4 class="menu-title">Brands</h4>
-											<ul class="mega-sub">
-												<li><a href="products.html">Casual Wear</a></li>
-												<li><a href="products.html">Evening Wear</a></li>
-												<li><a href="products.html">Formal Attire</a></li>
-												<li><a href="products.html">Womens Jeans</a></li>
-												<li><a href="products.html">Mens Jeans</a></li>
-												<li><a href="products.html">Fall Styles</a></li>
-											</ul>
-										</div>
-										
-										<div class="col-md-3">
-											<div class="carousel slide m-b" data-ride="carousel">
-												<div class="carousel-inner">
-													<div class="item active">
-														<img src="images/men/slide1.jpg" alt="" />
-													</div>
-													<div class="item">
-														<img src="images/men/slide2.jpg" alt="" />
-													</div>
-												</div>
-											</div>
-											<h5 class="text-semibold uppercase m-b-sm">Featured Products</h5>
-											<p>Lorem ipsum dolor sit, consectetur adipiscing elit. Etiam neque velit, blandit sed scelerisque.</p>
-											<a href="products.html" class="btn btn-default btn-round">Go to Shop →</a>
-										</div>
-										
-									</div>
-								</div>
-								<!-- // MEGA MENU -->
-								
-							</li>
-							<li>
-								<a href="components.html">Components</a>
-							</li>
-							<li>
-								<a href="store-locator.html">Store Locator</a>
-							</li>
-							<li>
-								<a href="contact-us.html">Contact Us</a>
-							</li>
-							<li>
-								<a href="#">Buy Me!</a>
-							</li>
-						</ul>
+                        <?php if(!empty($menuList)) { ?>
+                        <ul class="main-menu hidden-sm hidden-xs">
+                            <li class="active">
+                                <a href="javsacript:void(0);">Home</a>
+                            </li>
+                            <?php foreach($menuList[0]['item'] as $v){ ?>
+                                <li>
+                                    <a href="products.html"><?php echo $v['value']; ?></a>
+                                    <div class="mega-menu" data-col-lg="9" data-col-md="12">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <?php if(!empty($v['item'])){ ?>
+                                                    <?php foreach($v['item'] as $vv ){ ?>
+                                                        <ul class="mega-sub">
+                                                            <li><a href="products.html"><?php echo $vv['value']; ?></a></li>
+                                                        </ul>
+                                                    <?php } ?>
+                                                <?php } ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                        <?php } ?>
+
 						
 						<!-- MOBILE MENU -->
-						<div id="mobile-menu" class="dl-menuwrapper visible-xs visible-sm">
-							<button class="dl-trigger"><i class="iconfont-reorder round-icon"></i></button>
-							<ul class="dl-menu">
-								<li class="active">
-									<a href="javsacript:void(0);">Home</a>
-								</li>
-								<li>
-									<a href="javsacript:void(0);">Women</a>
-								</li>
-								<li>
-									<a href="javsacript:void(0);">Men</a>
-									
-									<ul class="dl-submenu">
-										<li>
-											<a href="products.html">Clothing</a>
-											<ul class="dl-submenu">
-												<li><a href="products.html">Casual Wear</a></li>
-												<li><a href="products.html">Evening Wear</a></li>
-												<li><a href="products.html">Formal Attire</a></li>
-												<li><a href="products.html">Womens Jeans</a></li>
-												<li><a href="products.html">Mens Jeans</a></li>
-												<li><a href="products.html">Fall Styles</a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="products.html">Accessories</a>
-											<ul class="dl-submenu">
-												<li><a href="products.html">Casual Wear</a></li>
-												<li><a href="products.html">Evening Wear</a></li>
-												<li><a href="products.html">Formal Attire</a></li>
-												<li><a href="products.html">Womens Jeans</a></li>
-												<li><a href="products.html">Mens Jeans</a></li>
-												<li><a href="products.html">Fall Styles</a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="products.html">Brands</a>
-											<ul class="dl-submenu">
-												<li><a href="products.html">Casual Wear</a></li>
-												<li><a href="products.html">Evening Wear</a></li>
-												<li><a href="products.html">Formal Attire</a></li>
-												<li><a href="products.html">Womens Jeans</a></li>
-												<li><a href="products.html">Mens Jeans</a></li>
-												<li><a href="products.html">Fall Styles</a></li>
-											</ul>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
+                        <div id="mobile-menu" class="dl-menuwrapper visible-xs visible-sm">
+                            <button class="dl-trigger"><i class="iconfont-reorder round-icon"></i></button>
+                            <?php if(!empty($menuList)) { ?>
+                                <ul class="dl-menu">
+                                    <li class="active">
+                                        <a href="javsacript:void(0);">Home</a>
+                                    </li>
+                                    <?php foreach($menuList[0]['item'] as $v){ ?>
+                                        <li>
+                                            <a href="products.html"><?php echo $v['value']; ?></a>
+                                                <?php if(!empty($v['item'])){ ?>
+                                                    <?php foreach($v['item'] as $vv ){ ?>
+                                                        <ul class="dl-submenu">
+                                                            <li><a href="products.html"><?php echo $vv['value']; ?></a></li>
+                                                        </ul>
+                                                    <?php } ?>
+                                                <?php } ?>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            <?php } ?>
+                        </div>
+
 						<!-- // MOBILE MENU -->
 
 					</nav>

@@ -29,7 +29,8 @@ class CategoryModel extends BaseModel
         if(empty($categoryList)) return  [];
 
         $list = $this->getLevelCategory($categoryList);
-
+//
+//        var_dump($list);exit;
         return $list;
 
 
